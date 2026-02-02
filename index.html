@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نجم الإخبارية</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    font-family: Tahoma, Arial;
+}
+body{
+    margin:0;
+    background:#f2f2f2;
+}
+
+/* الهيدر */
+header{
+    background:#c40000;
+    color:#fff;
+    padding:15px;
+}
+header h1{
+    margin:0;
+    font-size:28px;
+}
+
+/* القائمة */
+nav{
+    background:#222;
+}
+nav ul{
+    margin:0;
+    padding:0;
+    list-style:none;
+    display:flex;
+    flex-wrap:wrap;
+}
+nav ul li{
+    padding:12px 18px;
+    color:#fff;
+    cursor:pointer;
+}
+nav ul li:hover{
+    background:#c40000;
+}
+
+/* شريط الأخبار العاجلة */
+.breaking{
+    background:#ffeb3b;
+    padding:10px;
+    font-weight:bold;
+    color:#000;
+}
+
+/* المحتوى */
+.container{
+    display:flex;
+    gap:15px;
+    padding:15px;
+}
+
+/* الأخبار الرئيسية */
+.main-news{
+    flex:3;
+}
+.news-card{
+    background:#fff;
+    margin-bottom:15px;
+    padding:15px;
+    border-radius:5px;
+}
+.news-card h2{
+    margin-top:0;
+    color:#c40000;
+}
+.news-card p{
+    color:#444;
+}
+
+/* الشريط الجانبي */
+.sidebar{
+    flex:1;
+}
+.sidebar .box{
+    background:#fff;
+    padding:15px;
+    margin-bottom:15px;
+    border-radius:5px;
+}
+.sidebar h3{
+    margin-top:0;
+    color:#222;
+}
+
+/* الفوتر */
+footer{
+    background:#222;
+    color:#fff;
+    text-align:center;
+    padding:15px;
+    margin-top:20px;
+}
+
+/* موبايل */
+@media(max-width:768px){
+    .container{
+        flex-direction:column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>نجم الإخبارية</h1>
+</header>
+
+<nav>
+    <ul>
+        <li>الرئيسية</li>
+        <li>سياسة</li>
+        <li>رياضة</li>
+        <li>اقتصاد</li>
+        <li>تكنولوجيا</li>
+        <li>حوادث</li>
+    </ul>
+</nav>
+
+<div class="breaking">
+    🔴 عاجل: ارتفاع أسعار الذهب اليوم – تفاصيل كاملة بعد قليل
+</div>
+
+<div class="container">
+
+    <div class="main-news">
+
+        <div class="news-card">
+            <h2>الحكومة تعلن قرارات جديدة اليوم</h2>
+            <p>
+                أعلنت الحكومة منذ قليل عن حزمة قرارات اقتصادية جديدة
+                تهدف إلى تحسين مستوى المعيشة ودعم المواطنين.
+            </p>
+        </div>
+
+        <div class="news-card">
+            <h2>الأهلي يفوز في مباراة قوية</h2>
+            <p>
+                حقق النادي الأهلي فوزًا مهمًا في المباراة التي أقيمت مساء أمس
+                وسط أداء قوي من الفريق.
+            </p>
+        </div>
+
+        <div class="news-card">
+            <h2>تحديثات جديدة لهواتف أندرويد</h2>
+            <p>
+                أعلنت جوجل عن تحديثات أمنية جديدة لأنظمة أندرويد
+                لتحسين الأداء وحماية المستخدمين.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="sidebar">
+        <div class="box">
+            <h3>أكثر قراءة</h3>
+            <p>• أسعار الدولار اليوم</p>
+            <p>• نتيجة الثانوية العامة</p>
+            <p>• جدول مباريات اليوم</p>
+        </div>
+
+        <div class="box">
+            <h3>تابعنا</h3>
+            <p>فيسبوك</p>
+            <p>تويتر</p>
+            <p>يوتيوب</p>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    جميع الحقوق محفوظة © نجم الإخبارية 2026
+</footer>
+
+</body>
+</html>
