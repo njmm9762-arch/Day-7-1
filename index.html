@@ -5,9 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>نجم الإخبارية</title>
 
-<!-- وصف المشاركة للمواقع -->
 <meta property="og:title" content="نجم الإخبارية - آخر الأخبار أولاً">
-<meta property="og:description" content="تابع أهم الأخبار السياسية، الرياضية، الاقتصادية، والصحية أولاً على نجم الإخبارية. كل الأخبار موثوقة ومحدثة لحظة بلحظة.">
+<meta property="og:description" content="تابع أهم الأخبار السياسية، الرياضية، الاقتصادية، والصحية والفلسطينية أولاً على نجم الإخبارية. كل الأخبار موثوقة ومحدثة لحظة بلحظة.">
 <meta property="og:image" content="file_00000000a46471f4a4abf7ee1b7f1241.png">
 <meta property="og:type" content="website">
 
@@ -22,20 +21,20 @@ body {
 header {
     background:#c40000;
     color:white;
-    padding:15px;
+    padding:20px;
     text-align:center;
 }
 header .logo {
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:10px;
+    gap:15px;
 }
 header .logo img {
-    height:80px;
+    height:100px;
 }
 header .logo span {
-    font-size:18px;
+    font-size:24px;
     font-weight:bold;
     color:white;
 }
@@ -56,6 +55,9 @@ nav ul li {
     padding:10px 0;
     cursor:pointer;
 }
+nav ul li.active {
+    border-bottom:2px solid #c40000;
+}
 .container {
     width:90%;
     max-width:1200px;
@@ -63,7 +65,7 @@ nav ul li {
 }
 .news-card, .news-full {
     background:white;
-    padding:15px;
+    padding:20px;
     margin-bottom:20px;
     border-radius:8px;
     box-shadow:0 2px 6px rgba(0,0,0,0.1);
@@ -71,7 +73,7 @@ nav ul li {
 .news-card img, .news-full img {
     width:100%;
     border-radius:8px;
-    margin-bottom:10px;
+    margin-bottom:15px;
 }
 .news-card a, .back-link {
     display:inline-block;
@@ -79,9 +81,16 @@ nav ul li {
     color:#c40000;
     text-decoration:none;
     font-weight:bold;
+    font-size:18px;
 }
 .back-link {
     margin-top:20px;
+}
+.news-card h2, .news-full h2 {
+    font-size:22px;
+}
+.news-card p, .news-full p {
+    font-size:18px;
 }
 #news-page {
     display:none;
@@ -99,11 +108,11 @@ nav ul li {
 
 <nav>
     <ul>
-        <li>الرئيسية</li>
-        <li>رياضة</li>
-        <li>اقتصاد</li>
-        <li>سياسة</li>
-        <li>صحة</li>
+        <li class="active" onclick="filterNews('all')">الرئيسية</li>
+        <li onclick="filterNews('رياضة')">رياضة</li>
+        <li onclick="filterNews('صحة')">صحة</li>
+        <li onclick="filterNews('سياسة')">سياسة</li>
+        <li onclick="filterNews('فلسطين')">فلسطين</li>
     </ul>
 </nav>
 
@@ -111,28 +120,36 @@ nav ul li {
 
     <div class="main-news">
 
-        <!-- الخبر 1 -->
-        <div class="news-card">
+        <!-- الخبر 1: رياضة -->
+        <div class="news-card" data-category="رياضة">
             <img src="20260129010213213_369.webp" alt="خبر محمد صلاح">
             <h2>تأجيل انتقال محمد صلاح للسعودية</h2>
             <p>محمد صلاح باين هيفضل في ليفربول لكن في تكهنات عن انتقاله للسعودية.</p>
             <a href="#" onclick="showNews(1)">عرض المزيد</a>
         </div>
 
-        <!-- الخبر 2 -->
-        <div class="news-card">
+        <!-- الخبر 2: رياضة -->
+        <div class="news-card" data-category="رياضة">
             <img src="202601310510231023_395.webp" alt="خبر محمد صلاح">
             <h2>تأجيل انتقال محمد صلاح للسعودية</h2>
             <p>ملف انتقال محمد صلاح لسه في ليفربول، لكن هناك نقاشات حول مستقبله.</p>
             <a href="#" onclick="showNews(2)">عرض المزيد</a>
         </div>
 
-        <!-- الخبر 3 -->
-        <div class="news-card">
+        <!-- الخبر 3: صحة -->
+        <div class="news-card" data-category="صحة">
             <img src="202511091233363336.webp" alt="وزارة الصحة">
             <h2>وزارة الصحة تحذر من الإفراط في تناول الملح</h2>
             <p>دراسة جديدة تحذر الأفراد من ارتفاع استهلاك الملح وتأثيره على الصحة العامة.</p>
             <a href="#" onclick="showNews(3)">عرض المزيد</a>
+        </div>
+
+        <!-- الخبر 4: فلسطين -->
+        <div class="news-card" data-category="فلسطين">
+            <img src="images.png" alt="خبر فلسطين">
+            <h2>آخر التطورات في فلسطين اليوم</h2>
+            <p>الأحداث في فلسطين تشهد توترات كبيرة اليوم، مع استمرار التصعيد في بعض المناطق.</p>
+            <a href="#" onclick="showNews(4)">عرض المزيد</a>
         </div>
 
     </div>
@@ -140,6 +157,8 @@ nav ul li {
 </div>
 
 <div class="container" id="news-page">
+
+    <!-- وصف كامل لكل خبر -->
 
     <div class="news-full" id="news1">
         <img src="20260129010213213_369.webp" alt="محمد صلاح">
@@ -189,6 +208,25 @@ nav ul li {
         <a href="#" class="back-link" onclick="backToMain()">العودة للرئيسية</a>
     </div>
 
+    <div class="news-full" id="news4">
+        <img src="images.png" alt="فلسطين">
+        <h2>آخر التطورات في فلسطين اليوم</h2>
+        <p>
+            تشهد فلسطين اليوم توترات كبيرة في عدة مناطق نتيجة تصاعد الأحداث السياسية والميدانية. 
+            السلطات المحلية والدولية تتابع الموقف عن كثب، بينما المواطنين يواجهون تحديات كبيرة في حياتهم اليومية بسبب الاشتباكات المستمرة.
+        </p>
+        <p>
+            التقارير الصحفية تشير إلى أن هناك جهود مكثفة من الجهات الإنسانية لتقديم المساعدات الطارئة، 
+            ودعوات دولية لتهدئة الوضع وضمان حماية المدنيين. المشهد في غزة والضفة الغربية متغير بشكل مستمر، 
+            مع استمرار الاحتجاجات والعمليات الأمنية المتبادلة، مما يضع المنطقة تحت ضغط شديد على جميع المستويات.
+        </p>
+        <p>
+            في ظل هذه الظروف، يبرز دور الإعلام المحلي والدولي في نقل الأحداث بدقة، 
+            والتأكيد على حقوق السكان وضرورة توفير بيئة آمنة لهم. هذا الخبر يمثل صورة مباشرة للتحديات الحالية التي تواجه فلسطين اليوم.
+        </p>
+        <a href="#" class="back-link" onclick="backToMain()">العودة للرئيسية</a>
+    </div>
+
 </div>
 
 <script>
@@ -198,11 +236,34 @@ function showNews(n){
     document.getElementById('news1').style.display = 'none';
     document.getElementById('news2').style.display = 'none';
     document.getElementById('news3').style.display = 'none';
+    document.getElementById('news4').style.display = 'none';
     document.getElementById('news'+n).style.display = 'block';
 }
+
 function backToMain(){
     document.getElementById('news-page').style.display = 'none';
     document.getElementById('main-page').style.display = 'block';
+}
+
+// فلترة الأخبار حسب القسم
+function filterNews(category){
+    const cards = document.querySelectorAll('.news-card');
+    cards.forEach(card=>{
+        if(category === 'all' || card.getAttribute('data-category') === category){
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+    // تحديث active class
+    document.querySelectorAll('nav ul li').forEach(li=>li.classList.remove('active'));
+    if(category === 'all') {
+        document.querySelector('nav ul li:first-child').classList.add('active');
+    } else {
+        Array.from(document.querySelectorAll('nav ul li')).forEach(li=>{
+            if(li.textContent === category) li.classList.add('active');
+        });
+    }
 }
 </script>
 
