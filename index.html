@@ -68,7 +68,12 @@ nav ul li.active { border-bottom:2px solid #c40000; }
 <div class="container" id="news-page">
 <!-- صفحة الخبر ستعرض عند الضغط على عرض المزيد -->
 </div>
-
+  
+// انتقل للصفحة الرئيسية بعد 7 ثواني
+const videoTimeout = setTimeout(() => {
+    videoOverlay.style.display = 'none';
+}, 7000);
+  
 <script>
 // --- إخفاء الفيديو عند الضغط في أي مكان ---
 const introVideo = document.getElementById('intro-video');
