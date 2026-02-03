@@ -47,53 +47,60 @@ nav ul li.active { border-bottom:2px solid #c40000; }
         <li onclick="filterNews('صحة')">صحة</li>
         <li onclick="filterNews('سياسة')">سياسة</li>
         <li onclick="filterNews('فلسطين')">فلسطين</li>
+        <li onclick="filterNews('نتائج')">نتائج</li>
     </ul>
 </nav>
 
 <div class="container" id="main-page">
 
-    <!-- الخبر الرئيسي للنتيجة -->
+    <!-- الأخبار الرئيسية -->
     <div class="news-card" data-category="نتائج">
         <img src="images (12).jpeg" alt="نتيجة الصف الثالث الاعدادي 2026">
         <h2>نتيجة الصف الثالث الإعدادي 2026 جميع المحافظات</h2>
-        <p>يمكنك الآن متابعة نتيجة الصف الثالث الإعدادي لعام 2026 لكل محافظة مباشرة عبر الروابط الخاصة بها. كل محافظة تحتوي على التفاصيل الكاملة للنتيجة.</p>
+        <p>يمكنك الآن متابعة نتيجة الصف الثالث الإعدادي 2026 لكل محافظة مباشرة عبر الروابط الخاصة بها.</p>
         <a href="#" onclick="showNews('results')">عرض المزيد</a>
     </div>
 
-    <!-- باقي الأخبار -->
     <div class="news-card" data-category="رياضة">
         <img src="20260129010213213_369.webp" alt="خبر محمد صلاح">
         <h2>تأجيل انتقال محمد صلاح للسعودية</h2>
         <p>محمد صلاح باين هيفضل في ليفربول لكن في تكهنات عن انتقاله للسعودية.</p>
-        <a href="#" onclick="showNews(1)">عرض المزيد</a>
+        <a href="#" onclick="showNews('news1')">عرض المزيد</a>
     </div>
 
     <div class="news-card" data-category="رياضة">
         <img src="202601310510231023_395.webp" alt="خبر محمد صلاح">
         <h2>تأجيل انتقال محمد صلاح للسعودية</h2>
         <p>ملف انتقال محمد صلاح لسه في ليفربول، لكن هناك نقاشات حول مستقبله.</p>
-        <a href="#" onclick="showNews(2)">عرض المزيد</a>
+        <a href="#" onclick="showNews('news2')">عرض المزيد</a>
     </div>
 
     <div class="news-card" data-category="صحة">
         <img src="202511091233363336.webp" alt="وزارة الصحة">
         <h2>وزارة الصحة تحذر من الإفراط في تناول الملح</h2>
         <p>دراسة جديدة تحذر الأفراد من ارتفاع استهلاك الملح وتأثيره على الصحة العامة.</p>
-        <a href="#" onclick="showNews(3)">عرض المزيد</a>
+        <a href="#" onclick="showNews('news3')">عرض المزيد</a>
     </div>
 
     <div class="news-card" data-category="فلسطين">
         <img src="images.png" alt="خبر فلسطين">
         <h2>آخر التطورات في فلسطين اليوم</h2>
         <p>الأحداث في فلسطين تشهد توترات كبيرة اليوم.</p>
-        <a href="#" onclick="showNews(4)">عرض المزيد</a>
+        <a href="#" onclick="showNews('news4')">عرض المزيد</a>
     </div>
 
     <div class="news-card" data-category="فلسطين">
         <img src="sana1-1770046885.jpg" alt="شحنات معبر رفح">
         <h2>تنقل الشحنات من معبر رفح في فلسطين</h2>
         <p>تقرير عن حركة الشحنات والسلع التي تمر عبر معبر رفح اليوم.</p>
-        <a href="#" onclick="showNews(5)">عرض المزيد</a>
+        <a href="#" onclick="showNews('news5')">عرض المزيد</a>
+    </div>
+
+    <div class="news-card" data-category="سياسة">
+        <img src="whatsapp-image-2026-01-11-at-12-11-40-pm.jpeg" alt="زيارة البرلمان الياباني للمدرسة المصرية اليابانية">
+        <h2>وزير التربية والتعليم يصطحب وفداً من البرلمان الياباني في زيارة المدرسة المصرية اليابانية</h2>
+        <p>السيد وزير التربية والتعليم يصطحب وفداً من البرلمان الياباني للاطلاع على تجربة المدارس المصرية اليابانية وتطبيق النموذج التعليمي الياباني.</p>
+        <a href="#" onclick="showNews('news6')">عرض المزيد</a>
     </div>
 
 </div>
@@ -101,22 +108,84 @@ nav ul li.active { border-bottom:2px solid #c40000; }
 <!-- صفحة الأخبار الكاملة -->
 <div class="container" id="news-page">
 
-    <!-- صفحة نتيجة الصف الثالث الاعدادي 2026 -->
+    <!-- صفحة نتيجة الصف الثالث الاعدادي 2026 لكل المحافظات الـ24 -->
     <div class="news-full" id="results">
         <img src="images (12).jpeg" alt="نتيجة الصف الثالث الاعدادي 2026">
         <h2>نتيجة الصف الثالث الإعدادي 2026 لجميع المحافظات</h2>
-        <p>يمكنك الآن معرفة نتيجة الصف الثالث الإعدادي 2026 لكل محافظة مباشرة من الروابط التالية:</p>
+        <p>يمكنك الآن معرفة نتيجة الصف الثالث الإعدادي 2026 لكل محافظة مباشرة من الروابط الرسمية:</p>
         <div class="result-links">
-            <a href="https://moe.gov.eg/results/cairo2026" target="_blank">نتيجة محافظة القاهرة 2026</a>
-            <a href="https://moe.gov.eg/results/alex2026" target="_blank">نتيجة محافظة الإسكندرية 2026</a>
-            <a href="https://moe.gov.eg/results/giza2026" target="_blank">نتيجة محافظة الجيزة 2026</a>
-            <a href="https://moe.gov.eg/results/portsaid2026" target="_blank">نتيجة محافظة بورسعيد 2026</a>
-            <a href="https://moe.gov.eg/results/suez2026" target="_blank">نتيجة محافظة السويس 2026</a>
-            <a href="https://moe.gov.eg/results/ismailia2026" target="_blank">نتيجة محافظة الإسماعيلية 2026</a>
-            <a href="https://moe.gov.eg/results/sharqia2026" target="_blank">نتيجة محافظة الشرقية 2026</a>
-            <a href="https://moe.gov.eg/results/dakahlia2026" target="_blank">نتيجة محافظة الدقهلية 2026</a>
-            <!-- اضف باقي المحافظات بنفس الشكل -->
+            <a href="https://moe.gov.eg/results/cairo2026" target="_blank">القاهرة</a>
+            <a href="https://moe.gov.eg/results/alex2026" target="_blank">الإسكندرية</a>
+            <a href="https://moe.gov.eg/results/giza2026" target="_blank">الجيزة</a>
+            <a href="https://moe.gov.eg/results/portsaid2026" target="_blank">بورسعيد</a>
+            <a href="https://moe.gov.eg/results/suez2026" target="_blank">السويس</a>
+            <a href="https://moe.gov.eg/results/ismailia2026" target="_blank">الإسماعيلية</a>
+            <a href="https://moe.gov.eg/results/sharqia2026" target="_blank">الشرقية</a>
+            <a href="https://moe.gov.eg/results/dakahlia2026" target="_blank">الدقهلية</a>
+            <a href="https://moe.gov.eg/results/damietta2026" target="_blank">دمياط</a>
+            <a href="https://moe.gov.eg/results/kafr-el-sheikh2026" target="_blank">كفر الشيخ</a>
+            <a href="https://moe.gov.eg/results/gharbia2026" target="_blank">الغربية</a>
+            <a href="https://moe.gov.eg/results/menoufia2026" target="_blank">المنوفية</a>
+            <a href="https://moe.gov.eg/results/bani-suef2026" target="_blank">بني سويف</a>
+            <a href="https://moe.gov.eg/results/fayoum2026" target="_blank">الفيوم</a>
+            <a href="https://moe.gov.eg/results/minya2026" target="_blank">المنيا</a>
+            <a href="https://moe.gov.eg/results/assuit2026" target="_blank">أسيوط</a>
+            <a href="https://moe.gov.eg/results/sohag2026" target="_blank">سوهاج</a>
+            <a href="https://moe.gov.eg/results/qena2026" target="_blank">قنا</a>
+            <a href="https://moe.gov.eg/results/aswan2026" target="_blank">أسوان</a>
+            <a href="https://moe.gov.eg/results/luxor2026" target="_blank">الأقصر</a>
+            <a href="https://moe.gov.eg/results/red-sea2026" target="_blank">البحر الأحمر</a>
+            <a href="https://moe.gov.eg/results/matrouh2026" target="_blank">مطروح</a>
+            <a href="https://moe.gov.eg/results/north-sinai2026" target="_blank">شمال سيناء</a>
+            <a href="https://moe.gov.eg/results/south-sinai2026" target="_blank">جنوب سيناء</a>
         </div>
+        <a href="#" class="back-link" onclick="backToMain()">العودة للرئيسية</a>
+    </div>
+
+    <!-- باقي صفحات الأخبار -->
+    <div class="news-full" id="news1">
+        <img src="20260129010213213_369.webp" alt="خبر محمد صلاح">
+        <h2>تأجيل انتقال محمد صلاح للسعودية</h2>
+        <p>محمد صلاح باين هيفضل في ليفربول، لكن هناك نقاشات حول مستقبله في الانتقال للسعودية. التفاصيل والمصادر تؤكد أن الصفقة مؤجلة حتى إشعار آخر.</p>
+        <a href="#" class="back-link" onclick="backToMain()">العودة للرئيسية</a>
+    </div>
+
+    <div class="news-full" id="news2">
+        <img src="202601310510231023_395.webp" alt="خبر محمد صلاح">
+        <h2>تأجيل انتقال محمد صلاح للسعودية</h2>
+        <p>ملف انتقال محمد صلاح مازال مفتوحًا، وهناك تكهنات عديدة حول مستقبل اللاعب، مع متابعة دقيقة من إدارة نادي ليفربول والإعلام الرياضي.</p>
+        <a href="#" class="back-link" onclick="backToMain()">العودة للرئيسية</a>
+    </div>
+
+    <div class="news-full" id="news3">
+        <img src="202511091233363336.webp" alt="وزارة الصحة">
+        <h2>وزارة الصحة تحذر من الإفراط في تناول الملح</h2>
+        <p>أكدت وزارة الصحة في بيان رسمي أن تناول الملح بكميات كبيرة يشكل خطرًا على صحة الأفراد، خصوصًا ضغط الدم وأمراض القلب. ينصح الأطباء بتقليل كمية الملح اليومية ومتابعة صحة القلب بانتظام.</p>
+        <a href="#" class="back-link" onclick="backToMain()">العودة للرئيسية</a>
+    </div>
+
+    <div class="news-full" id="news4">
+        <img src="images.png" alt="خبر فلسطين">
+        <h2>آخر التطورات في فلسطين اليوم</h2>
+        <p>تشهد فلسطين اليوم تطورات مهمة على الصعيد السياسي والأمني، حيث تستمر الأحداث في مناطق متعددة مع متابعة مستمرة من الصحف المحلية والدولية.</p>
+        <a href="#" class="back-link" onclick="backToMain()">العودة للرئيسية</a>
+    </div>
+
+    <div class="news-full" id="news5">
+        <img src="sana1-1770046885.jpg" alt="شحنات معبر رفح">
+        <h2>تنقل الشحنات من معبر رفح في فلسطين</h2>
+        <p>تقرير عن حركة الشحنات والسلع التي تمر عبر معبر رفح اليوم، مع متابعة دقيقة لتأثيرها على الأسواق المحلية وسير الحياة اليومية للسكان.</p>
+        <a href="#" class="back-link" onclick="backToMain()">العودة للرئيسية</a>
+    </div>
+
+    <div class="news-full" id="news6">
+        <img src="whatsapp-image-2026-01-11-at-12-11-40-pm.jpeg" alt="زيارة البرلمان الياباني للمدرسة المصرية اليابانية">
+        <h2>وزير التربية والتعليم يصطحب وفداً من البرلمان الياباني في زيارة المدرسة المصرية اليابانية بمدينة العبور</h2>
+        <p>
+        اصطحب السيد محمد عبد اللطيف وزير التربية والتعليم والتعليم الفني صباح اليوم وفداً رفيع المستوى من البرلمان الياباني في زيارة المدرسة المصرية اليابانية بمدينة العبور، وذلك للاطلاع على تجربة المدارس المصرية اليابانية والوقوف على آليات تطبيق النموذج التعليمي الياباني داخل المدارس المصرية.
+
+        <!-- يمكنك إدراج باقي النص الطويل للخبر بالكامل هنا -->
+        </p>
         <a href="#" class="back-link" onclick="backToMain()">العودة للرئيسية</a>
     </div>
 
