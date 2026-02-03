@@ -6,12 +6,12 @@
 <title>نجم الإخبارية</title>
 
 <!-- أيقونة الموقع -->
-<link rel="icon" type="image/png" href="https://njmm9762-arch.github.io/Day-7-1/file_00000000a46471f4a4abf7ee1b7f1241.png">
+<link rel="icon" type="image/png" href="file_00000000a46471f4a4abf7ee1b7f1241.png">
 
 <!-- بيانات المشاركة (Open Graph) -->
 <meta property="og:title" content="نجم الإخبارية - آخر الأخبار أولاً">
 <meta property="og:description" content="تابع أهم الأخبار السياسية، الرياضية، الصحية، الفلسطينية أولاً على نجم الإخبارية. كل الأخبار موثوقة ومحدثة لحظة بلحظة.">
-<meta property="og:image" content="https://njmm9762-arch.github.io/Day-7-1/file_00000000a46471f4a4abf7ee1b7f1241.png">
+<meta property="og:image" content="file_00000000a46471f4a4abf7ee1b7f1241.png">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://njmm9762-arch.github.io/Day-7-1/">
 
@@ -34,22 +34,19 @@ nav ul li.active { border-bottom:2px solid #c40000; }
 .news-card p, .news-full p { font-size:18px; }
 #news-page { display:none; }
 .result-links a { display:block; margin:5px 0; color:#c40000; text-decoration:none; font-size:18px; }
-
-/* فيديو الدخول */
-#intro-video { position:fixed;top:0;left:0;width:100%;height:100%;background:black;display:flex;justify-content:center;align-items:center;z-index:9999; }
-#intro-video video { width:100%; height:100%; object-fit:cover; }
+#intro-video { position:fixed; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:9999; }
 </style>
 </head>
 <body>
 
 <!-- فيديو الدخول -->
-<div id="intro-video">
-    <video id="videoElement" src="VID_٢٠٢٦٠٢٠٣٠٣٠٩٥١.mp4" autoplay muted></video>
-</div>
+<video id="intro-video" autoplay muted playsinline>
+  <source src="VID_٢٠٢٦٠٢٠٣٠٣٠٩٥١.mp4" type="video/mp4">
+</video>
 
 <header>
     <div class="logo">
-        <img src="https://njmm9762-arch.github.io/Day-7-1/file_00000000a46471f4a4abf7ee1b7f1241.png" alt="نجم الإخبارية">
+        <img src="file_00000000a46471f4a4abf7ee1b7f1241.png" alt="نجم الإخبارية">
         <span>نجم الإخبارية</span>
     </div>
 </header>
@@ -65,216 +62,131 @@ nav ul li.active { border-bottom:2px solid #c40000; }
 </nav>
 
 <div class="container" id="main-page">
-
-<!-- الأخبار الرئيسية -->
-<div class="news-card" data-category="رياضة" data-link="news1">
-    <img src="20260129010213213_369.webp" alt="خبر محمد صلاح">
-    <h2>تأجيل انتقال محمد صلاح للسعودية</h2>
-    <p>محمد صلاح باين هيفضل في ليفربول لكن في تكهنات عن انتقاله للسعودية.</p>
-    <a href="#" onclick="showNews('news1')">عرض المزيد</a>
-</div>
-
-<div class="news-card" data-category="رياضة" data-link="news2">
-    <img src="202601310510231023_395.webp" alt="خبر محمد صلاح">
-    <h2>محمد صلاح يدرس مستقبله الرياضي</h2>
-    <p>ملف انتقال محمد صلاح لسه في ليفربول، لكن هناك نقاشات حول مستقبله.</p>
-    <a href="#" onclick="showNews('news2')">عرض المزيد</a>
-</div>
-
-<div class="news-card" data-category="صحة" data-link="news3">
-    <img src="202511091233363336.webp" alt="وزارة الصحة">
-    <h2>وزارة الصحة تحذر من الإفراط في تناول الملح</h2>
-    <p>دراسة جديدة تحذر الأفراد من ارتفاع استهلاك الملح وتأثيره على الصحة العامة.</p>
-    <a href="#" onclick="showNews('news3')">عرض المزيد</a>
-</div>
-
-<div class="news-card" data-category="فلسطين" data-link="news4">
-    <img src="images.png" alt="خبر فلسطين">
-    <h2>آخر التطورات في فلسطين اليوم</h2>
-    <p>الأحداث في فلسطين تشهد توترات كبيرة اليوم.</p>
-    <a href="#" onclick="showNews('news4')">عرض المزيد</a>
-</div>
-
-<div class="news-card" data-category="فلسطين" data-link="news5">
-    <img src="sana1-1770046885.jpg" alt="شحنات معبر رفح">
-    <h2>تنقل الشحنات من معبر رفح في فلسطين</h2>
-    <p>تقرير عن حركة الشحنات والسلع التي تمر عبر معبر رفح اليوم.</p>
-    <a href="#" onclick="showNews('news5')">عرض المزيد</a>
-</div>
-
-<div class="news-card" data-category="سياسة" data-link="news6">
-    <img src="whatsapp-image-2026-01-11-at-12-11-40-pm.jpeg" alt="زيارة البرلمان الياباني للمدرسة المصرية اليابانية">
-    <h2>زيارة البرلمان الياباني للمدرسة المصرية اليابانية</h2>
-    <p>اصطحب السيد محمد عبد اللطيف وزير التربية والتعليم وفداً من البرلمان الياباني للمدرسة المصرية اليابانية بمدينة العبور...</p>
-    <a href="#" onclick="showNews('news6')">عرض المزيد</a>
-</div>
-
-<div class="news-card" data-category="سياسة" data-link="results">
-    <img src="images (12).jpeg" alt="نتيجة الصف الثالث الاعدادي 2026">
-    <h2>نتيجة الصف الثالث الإعدادي 2026 جميع المحافظات</h2>
-    <p>يمكنك الآن متابعة نتيجة الصف الثالث الإعدادي 2026 لكل محافظة مباشرة عبر الروابط الخاصة بها.</p>
-    <a href="#" onclick="showNews('results')">عرض المزيد</a>
-</div>
-
+<!-- الأخبار سيتم تحميلها من JSON -->
 </div>
 
 <div class="container" id="news-page">
-
-<!-- صفحة النتائج -->
-<div class="news-full" id="results">
-    <img src="images (12).jpeg" alt="نتيجة الصف الثالث الاعدادي 2026">
-    <h2>نتيجة الصف الثالث الإعدادي 2026 لجميع المحافظات</h2>
-    <p>يمكنك الآن معرفة نتيجة الصف الثالث الإعدادي 2026 لكل محافظة مباشرة من الروابط الرسمية:</p>
-    <div class="result-links">
-        <a href="https://moe.gov.eg/results/cairo2026" target="_blank">القاهرة</a>
-        <a href="https://moe.gov.eg/results/alex2026" target="_blank">الإسكندرية</a>
-        <a href="https://moe.gov.eg/results/giza2026" target="_blank">الجيزة</a>
-        <!-- أكمل باقي المحافظات الـ24 بنفس الشكل -->
-    </div>
-    <a href="#" class="back-link" onclick="backToMain()">الرجوع للرئيسية</a>
-</div>
-
-<!-- صفحة خبر محمد صلاح 1 -->
-<div class="news-full" id="news1">
-    <img src="20260129010213213_369.webp" alt="خبر محمد صلاح">
-    <h2>تأجيل انتقال محمد صلاح للسعودية</h2>
-    <p>محمد صلاح باين هيفضل في ليفربول لكن في تكهنات عن انتقاله للسعودية. التفاصيل تشمل المفاوضات الحالية، ردود الأفعال من النادي والجماهير، وأراء المحللين حول أفضل الخيارات لمسيرة اللاعب. كل جديد سيتم تحديثه لحظة بلحظة.</p>
-    <a href="#" class="back-link" onclick="backToMain()">الرجوع للرئيسية</a>
-</div>
-
-<!-- صفحة خبر محمد صلاح 2 -->
-<div class="news-full" id="news2">
-    <img src="202601310510231023_395.webp" alt="خبر محمد صلاح">
-    <h2>محمد صلاح يدرس مستقبله الرياضي</h2>
-    <p>ملف انتقال محمد صلاح لسه في ليفربول، لكن هناك نقاشات حول مستقبله. تقارير الصحف البريطانية تشير إلى عدة عروض من الدوري السعودي وبعض الأندية الأوروبية. اللاعب والجهاز الفني يناقشون الخطوات القادمة بعناية.</p>
-    <a href="#" class="back-link" onclick="backToMain()">الرجوع للرئيسية</a>
-</div>
-
-<!-- صفحة خبر وزارة الصحة -->
-<div class="news-full" id="news3">
-    <img src="202511091233363336.webp" alt="وزارة الصحة">
-    <h2>وزارة الصحة تحذر من الإفراط في تناول الملح</h2>
-    <p>دراسة جديدة تحذر الأفراد من ارتفاع استهلاك الملح وتأثيره على الصحة العامة. الوزارة توصي بتقليل كمية الملح في الطعام اليومي، واتباع أنظمة غذائية متوازنة لتجنب الأمراض المرتبطة بارتفاع ضغط الدم وأمراض القلب.</p>
-    <a href="#" class="back-link" onclick="backToMain()">الرجوع للرئيسية</a>
-</div>
-
-<!-- صفحة خبر فلسطين اليوم -->
-<div class="news-full" id="news4">
-    <img src="images.png" alt="خبر فلسطين">
-    <h2>آخر التطورات في فلسطين اليوم</h2>
-    <p>الأحداث في فلسطين تشهد توترات كبيرة اليوم، بما في ذلك التظاهرات والتحركات العسكرية والسياسية. تغطية مستمرة من نجم الإخبارية لتفاصيل الأحداث، مع تحليل خبراء ومصادر موثوقة.</p>
-    <a href="#" class="back-link" onclick="backToMain()">الرجوع للرئيسية</a>
-</div>
-
-<!-- صفحة شحنات معبر رفح -->
-<div class="news-full" id="news5">
-    <img src="sana1-1770046885.jpg" alt="شحنات معبر رفح">
-    <h2>تنقل الشحنات من معبر رفح في فلسطين</h2>
-    <p>تقرير مفصل عن حركة الشحنات والسلع التي تمر عبر معبر رفح اليوم. يشمل أنواع البضائع، أوقات الدخول والخروج، وتأثيرها على الاقتصاد المحلي. متابعة حية لكل جديد.</p>
-    <a href="#" class="back-link" onclick="backToMain()">الرجوع للرئيسية</a>
-</div>
-
-<!-- صفحة زيارة البرلمان الياباني -->
-<div class="news-full" id="news6">
-    <img src="whatsapp-image-2026-01-11-at-12-11-40-pm.jpeg" alt="زيارة المدرسة اليابانية">
-    <h2>زيارة البرلمان الياباني للمدرسة المصرية اليابانية</h2>
-    <p>اصطحب السيد محمد عبد اللطيف وزير التربية والتعليم وفداً من البرلمان الياباني للمدرسة المصرية اليابانية بمدينة العبور للاطلاع على تجربة المدارس المصرية اليابانية وتطبيق النموذج التعليمي الياباني. خلال الزيارة تم متابعة الفصول الدراسية، المعامل، الأنشطة الموسيقية والرياضية، وتطبيق منهج SPL للرياضيات. الوفد الياباني أعرب عن تقديره للتجربة التعليمية المصرية اليابانية والالتزام بالقيم التعليمية.</p>
-    <a href="#" class="back-link" onclick="backToMain()">الرجوع للرئيسية</a>
-</div>
-
+<!-- صفحة الخبر ستعرض عند الضغط على عرض المزيد -->
 </div>
 
 <script>
-// فيديو الدخول
+// --- إخفاء الفيديو عند الضغط في أي مكان ---
 const introVideo = document.getElementById('intro-video');
-const videoEl = document.getElementById('videoElement');
-introVideo.addEventListener('click', hideVideo);
-setTimeout(hideVideo, 7000);
-function hideVideo(){ introVideo.style.display='none'; videoEl.pause(); }
+document.addEventListener('click', ()=>{ introVideo.style.display='none'; });
 
-// --- إدارة الأخبار والضغط الطويل ومشاركة الخبر ---
+// --- جلب البيانات من JSON ---
+fetch('data.json')
+.then(response => response.json())
+.then(data => {
+    const mainPage = document.getElementById('main-page');
+    const newsPage = document.getElementById('news-page');
+    
+    data.news.forEach(n => {
+        // إنشاء بطاقة الأخبار في الصفحة الرئيسية
+        const card = document.createElement('div');
+        card.className = 'news-card';
+        card.dataset.category = n.category;
+        card.dataset.link = n.id;
+        card.innerHTML = `
+            <img src="${n.image}" alt="${n.title}">
+            <h2>${n.title}</h2>
+            <p>${n.desc.split("<br>").slice(0,2).join(" ")}...</p>
+            <a href="#" onclick="showNews('${n.id}')">عرض المزيد</a>
+        `;
+        mainPage.appendChild(card);
+        
+        // إنشاء صفحة الخبر الكامل
+        const full = document.createElement('div');
+        full.className = 'news-full';
+        full.id = n.id;
+        full.style.display='none';
+        let fullDesc = n.desc;
+        if(n.id==='results' && n.links){
+            fullDesc += '<div class="result-links">';
+            for(const [prov, link] of Object.entries(n.links)){
+                fullDesc += `<a href="${link}" target="_blank">${prov}</a>`;
+            }
+            fullDesc += '</div>';
+        }
+        full.innerHTML = `
+            <img src="${n.image}" alt="${n.title}">
+            <h2>${n.title}</h2>
+            <p>${fullDesc}</p>
+            <a href="#" class="back-link" onclick="backToMain()">الرجوع للرئيسية</a>
+        `;
+        newsPage.appendChild(full);
+    });
+
+    // الضغط الطويل لمشاركة الخبر
+    const newsCards = document.querySelectorAll('.news-card');
+    newsCards.forEach(card=>{
+        let pressTimer;
+        card.addEventListener('mousedown', startPress);
+        card.addEventListener('touchstart', startPress);
+        card.addEventListener('mouseup', cancelPress);
+        card.addEventListener('mouseleave', cancelPress);
+        card.addEventListener('touchend', cancelPress);
+
+        function startPress(){
+            pressTimer = setTimeout(()=>{ showShare(card); }, 600);
+        }
+        function cancelPress(){ clearTimeout(pressTimer); }
+
+        function showShare(card){
+            if(card.querySelector('.share-btn')) return;
+            const btn = document.createElement('a');
+            btn.className = 'share-btn';
+            btn.textContent = 'مشاركة الخبر';
+            btn.style.display='block';
+            btn.style.marginTop='10px';
+            btn.style.padding='8px 12px';
+            btn.style.background='#c40000';
+            btn.style.color='white';
+            btn.style.textDecoration='none';
+            btn.style.borderRadius='5px';
+            btn.style.textAlign='center';
+            btn.style.cursor='pointer';
+            btn.onclick = function(){
+                const newsTitle = card.querySelector('h2').textContent;
+                const newsId = card.dataset.link;
+                const shareURL = window.location.href.split('#')[0] + '#' + newsId;
+                if(navigator.share){ navigator.share({ title: newsTitle, url: shareURL }); }
+                else { prompt("انسخ الرابط لمشاركة الخبر:", shareURL); }
+            };
+            card.appendChild(btn);
+        }
+    });
+
+    // فتح الخبر مباشرة عبر الرابط
+    window.addEventListener('load', ()=>{
+        let hash = window.location.hash.replace('#','');
+        if(hash){ showNews(hash); }
+    });
+});
+
+// --- دوال التحكم ---
 function showNews(n){
     document.getElementById('main-page').style.display='none';
     document.getElementById('news-page').style.display='block';
-    let news = document.querySelectorAll('.news-full');
-    news.forEach(nf => nf.style.display='none');
-    document.getElementById(n).style.display='block';
-    window.currentNewsId = n; 
+    document.querySelectorAll('.news-full').forEach(nf=>nf.style.display='none');
+    const news = document.getElementById(n);
+    if(news) news.style.display='block';
+    window.currentNewsId = n;
 }
-
 function backToMain(){
     document.getElementById('news-page').style.display='none';
     document.getElementById('main-page').style.display='block';
 }
-
 function filterNews(category){
-    const cards=document.querySelectorAll('.news-card');
+    const cards = document.querySelectorAll('.news-card');
     cards.forEach(card=>{
-        if(category==='all'||card.getAttribute('data-category')===category){
-            card.style.display='block';
-        } else { card.style.display='none'; }
+        if(category==='all' || card.dataset.category===category){ card.style.display='block'; }
+        else { card.style.display='none'; }
     });
     document.querySelectorAll('nav ul li').forEach(li=>li.classList.remove('active'));
     if(category==='all'){ document.querySelector('nav ul li:first-child').classList.add('active'); }
     else { Array.from(document.querySelectorAll('nav ul li')).forEach(li=>{ if(li.textContent===category) li.classList.add('active'); }); }
 }
-
-// الضغط الطويل لإظهار زر مشاركة الخبر
-const newsCards = document.querySelectorAll('.news-card');
-newsCards.forEach(card=>{
-    let pressTimer;
-    card.addEventListener('mousedown', startPress);
-    card.addEventListener('touchstart', startPress);
-    card.addEventListener('mouseup', cancelPress);
-    card.addEventListener('mouseleave', cancelPress);
-    card.addEventListener('touchend', cancelPress);
-
-    function startPress(e){
-        pressTimer = setTimeout(()=>{
-            showShare(card);
-        }, 600);
-    }
-
-    function cancelPress(){
-        clearTimeout(pressTimer);
-    }
-
-    function showShare(card){
-        let existing = card.querySelector('.share-btn');
-        if(existing) return;
-        const btn = document.createElement('a');
-        btn.className = 'share-btn';
-        btn.textContent = 'مشاركة الخبر';
-        btn.style.display='block';
-        btn.style.marginTop='10px';
-        btn.style.padding='8px 12px';
-        btn.style.background='#c40000';
-        btn.style.color='white';
-        btn.style.textDecoration='none';
-        btn.style.borderRadius='5px';
-        btn.style.textAlign='center';
-        btn.style.cursor='pointer';
-        btn.onclick = function(){
-            let newsTitle = card.querySelector('h2').textContent;
-            let newsId = card.querySelector('a').getAttribute('onclick').match(/'(.+?)'/)[1];
-            let shareURL = window.location.href.split('#')[0] + '#' + newsId;
-            if(navigator.share){ 
-                navigator.share({ title: newsTitle, url: shareURL });
-            } else {
-                prompt("انسخ الرابط لمشاركة الخبر:", shareURL);
-            }
-        };
-        card.appendChild(btn);
-    }
-});
-
-// فتح الخبر مباشرة عبر الرابط
-window.addEventListener('load', ()=>{
-    let hash = window.location.hash.replace('#','');
-    if(hash){
-        showNews(hash);
-    }
-});
 </script>
 </body>
 </html>
