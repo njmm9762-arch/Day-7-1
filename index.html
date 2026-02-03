@@ -47,20 +47,12 @@ nav ul li.active { border-bottom:2px solid #c40000; }
         <li onclick="filterNews('صحة')">صحة</li>
         <li onclick="filterNews('سياسة')">سياسة</li>
         <li onclick="filterNews('فلسطين')">فلسطين</li>
-        <li onclick="filterNews('نتائج')">نتائج</li>
     </ul>
 </nav>
 
 <div class="container" id="main-page">
 
     <!-- الأخبار الرئيسية -->
-    <div class="news-card" data-category="نتائج">
-        <img src="images (12).jpeg" alt="نتيجة الصف الثالث الاعدادي 2026">
-        <h2>نتيجة الصف الثالث الإعدادي 2026 جميع المحافظات</h2>
-        <p>يمكنك الآن متابعة نتيجة الصف الثالث الإعدادي 2026 لكل محافظة مباشرة عبر الروابط الخاصة بها.</p>
-        <a href="#" onclick="showNews('results')">عرض المزيد</a>
-    </div>
-
     <div class="news-card" data-category="رياضة">
         <img src="20260129010213213_369.webp" alt="خبر محمد صلاح">
         <h2>تأجيل انتقال محمد صلاح للسعودية</h2>
@@ -103,6 +95,13 @@ nav ul li.active { border-bottom:2px solid #c40000; }
         <a href="#" onclick="showNews('news6')">عرض المزيد</a>
     </div>
 
+    <div class="news-card" data-category="سياسة">
+        <img src="images (12).jpeg" alt="نتيجة الصف الثالث الاعدادي 2026">
+        <h2>نتيجة الصف الثالث الإعدادي 2026 جميع المحافظات</h2>
+        <p>يمكنك الآن متابعة نتيجة الصف الثالث الإعدادي 2026 لكل محافظة مباشرة عبر الروابط الخاصة بها.</p>
+        <a href="#" onclick="showNews('results')">عرض المزيد</a>
+    </div>
+
 </div>
 
 <!-- صفحة الأخبار الكاملة -->
@@ -142,7 +141,7 @@ nav ul li.active { border-bottom:2px solid #c40000; }
         <a href="#" class="back-link" onclick="backToMain()">العودة للرئيسية</a>
     </div>
 
-    <!-- باقي صفحات الأخبار -->
+    <!-- باقي صفحات الأخبار كما هي -->
     <div class="news-full" id="news1">
         <img src="20260129010213213_369.webp" alt="خبر محمد صلاح">
         <h2>تأجيل انتقال محمد صلاح للسعودية</h2>
