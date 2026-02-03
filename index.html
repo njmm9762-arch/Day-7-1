@@ -95,6 +95,43 @@ nav ul li.active {
 #news-page {
     display:none;
 }
+
+/* Popup style */
+#popup {
+    display:none;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    background:white;
+    padding:30px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+    border-radius:10px;
+    z-index:1000;
+    width:80%;
+    max-width:500px;
+    text-align:center;
+}
+#popup button {
+    margin-top:20px;
+    padding:10px 20px;
+    background:#c40000;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    font-size:16px;
+}
+#popup-overlay {
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+    z-index:999;
+}
 </style>
 </head>
 <body>
@@ -152,6 +189,14 @@ nav ul li.active {
             <a href="#" onclick="showNews(4)">عرض المزيد</a>
         </div>
 
+        <!-- الخبر 5: فلسطين -->
+        <div class="news-card" data-category="فلسطين">
+            <img src="sana1-1770046885.jpg" alt="شحنات معبر رفح">
+            <h2>تنقل الشحنات من معبر رفح في فلسطين</h2>
+            <p>تقرير عن حركة الشحنات والسلع التي تمر عبر معبر رفح اليوم.</p>
+            <a href="#" onclick="showNews(5)">عرض المزيد</a>
+        </div>
+
     </div>
 
 </div>
@@ -169,10 +214,6 @@ nav ul li.active {
             وهناك مفاوضات غير رسمية جارية مع بعض الأندية السعودية التي ترغب في ضمه، 
             لكن كل شيء مؤجل حتى إشعار آخر. اللاعب نفسه يركز على مسيرته الحالية ويستعد للمباريات المقبلة في الدوري الإنجليزي.
         </p>
-        <p>
-            تفاصيل إضافية حول تأثير هذا التأجيل على الفريق والجماهير تشير إلى أن النادي يسعى للحفاظ على استقراره،
-            مع الحفاظ على مستويات عالية من الأداء. الجماهير متحمسة لمعرفة مصير اللاعب، والتكهنات مستمرة حول موعد إعلان أي قرار رسمي.
-        </p>
         <a href="#" class="back-link" onclick="backToMain()">العودة للرئيسية</a>
     </div>
 
@@ -183,10 +224,6 @@ nav ul li.active {
             تأجيل انتقال محمد صلاح إلى الدوري السعودي جاء بعد دراسة عدة عروض من أندية مختلفة، 
             وتركز إدارة ليفربول على الحفاظ على استقرار الفريق في المنافسات الحالية. 
             اللاعب يواصل تدريباته بشكل طبيعي ويشارك في المباريات، بينما المصادر الإعلامية تتابع كل تطورات المفاوضات عن كثب.
-        </p>
-        <p>
-            هذا التأجيل يمنح ليفربول فرصة لإعادة ترتيب أولوياته والتخطيط للموسم المقبل. 
-            الجماهير متحمسة لمعرفة القرار النهائي، وهناك توقعات أن يتم الإعلان عن أي اتفاق رسمي خلال الأسابيع القادمة.
         </p>
         <a href="#" class="back-link" onclick="backToMain()">العودة للرئيسية</a>
     </div>
@@ -200,11 +237,6 @@ nav ul li.active {
             الوزارة نشرت إرشادات غذائية تهدف إلى تقليل استهلاك الملح في الوجبات اليومية، 
             مع التأكيد على قراءة ملصقات الأغذية واختيار البدائل الصحية.
         </p>
-        <p>
-            بالإضافة إلى ذلك، دعت وزارة الصحة المؤسسات الغذائية والمطاعم إلى الالتزام بالمعايير الصحية، 
-            وتقديم معلومات دقيقة حول محتوى الملح في الأطعمة. 
-            الهدف هو رفع وعي المواطنين وتحفيزهم على تبني عادات غذائية صحية للحفاظ على صحتهم العامة والحد من المخاطر المرتبطة بالإفراط في تناول الملح.
-        </p>
         <a href="#" class="back-link" onclick="backToMain()">العودة للرئيسية</a>
     </div>
 
@@ -215,28 +247,41 @@ nav ul li.active {
             تشهد فلسطين اليوم توترات كبيرة في عدة مناطق نتيجة تصاعد الأحداث السياسية والميدانية. 
             السلطات المحلية والدولية تتابع الموقف عن كثب، بينما المواطنين يواجهون تحديات كبيرة في حياتهم اليومية بسبب الاشتباكات المستمرة.
         </p>
+        <a href="#" class="back-link" onclick="backToMain()">العودة للرئيسية</a>
+    </div>
+
+    <div class="news-full" id="news5">
+        <img src="sana1-1770046885.jpg" alt="شحنات معبر رفح">
+        <h2>تنقل الشحنات من معبر رفح في فلسطين</h2>
         <p>
-            التقارير الصحفية تشير إلى أن هناك جهود مكثفة من الجهات الإنسانية لتقديم المساعدات الطارئة، 
-            ودعوات دولية لتهدئة الوضع وضمان حماية المدنيين. المشهد في غزة والضفة الغربية متغير بشكل مستمر، 
-            مع استمرار الاحتجاجات والعمليات الأمنية المتبادلة، مما يضع المنطقة تحت ضغط شديد على جميع المستويات.
+            شهدت حركة الشحنات عبر معبر رفح اليوم نشاطاً ملحوظاً، حيث تم نقل مختلف السلع والمواد الأساسية للمواطنين. 
+            السلطات المصرية والفلسطينية تعاونت لضمان مرور آمن ومنظم للشحنات، مع التركيز على سلامة السلع والالتزام بالإجراءات الجمركية.
         </p>
         <p>
-            في ظل هذه الظروف، يبرز دور الإعلام المحلي والدولي في نقل الأحداث بدقة، 
-            والتأكيد على حقوق السكان وضرورة توفير بيئة آمنة لهم. هذا الخبر يمثل صورة مباشرة للتحديات الحالية التي تواجه فلسطين اليوم.
+            التقرير يشير إلى أن هذه الشحنات أساسية لتلبية احتياجات سكان القطاع، وتشمل المواد الغذائية والأدوية والمستلزمات اليومية. 
+            العملية تمت بسلاسة، رغم التحديات اللوجستية والضغط الكبير على المعبر. 
+            هذه الأخبار تعكس الوضع الحيوي الذي يمر به قطاع غزة، وأهمية معبر رفح كممر رئيسي للشحنات الحيوية.
         </p>
         <a href="#" class="back-link" onclick="backToMain()">العودة للرئيسية</a>
     </div>
 
 </div>
 
+<!-- Popup HTML -->
+<div id="popup-overlay"></div>
+<div id="popup">
+    <h2>إعلان هام</h2>
+    <p>تابع أحدث الأخبار أولاً على نجم الإخبارية!</p>
+    <button onclick="closePopup()">اغلاق</button>
+</div>
+
 <script>
 function showNews(n){
     document.getElementById('main-page').style.display = 'none';
     document.getElementById('news-page').style.display = 'block';
-    document.getElementById('news1').style.display = 'none';
-    document.getElementById('news2').style.display = 'none';
-    document.getElementById('news3').style.display = 'none';
-    document.getElementById('news4').style.display = 'none';
+    for(let i=1;i<=5;i++){
+        document.getElementById('news'+i).style.display = 'none';
+    }
     document.getElementById('news'+n).style.display = 'block';
 }
 
@@ -255,7 +300,6 @@ function filterNews(category){
             card.style.display = 'none';
         }
     });
-    // تحديث active class
     document.querySelectorAll('nav ul li').forEach(li=>li.classList.remove('active'));
     if(category === 'all') {
         document.querySelector('nav ul li:first-child').classList.add('active');
@@ -265,6 +309,18 @@ function filterNews(category){
         });
     }
 }
+
+// Popup functions
+function showPopup(){
+    document.getElementById('popup-overlay').style.display='block';
+    document.getElementById('popup').style.display='block';
+}
+function closePopup(){
+    document.getElementById('popup-overlay').style.display='none';
+    document.getElementById('popup').style.display='none';
+}
+// عرض Popup بعد 3 ثواني
+setTimeout(showPopup, 3000);
 </script>
 
 </body>
