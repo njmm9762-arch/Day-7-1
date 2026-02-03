@@ -26,23 +26,23 @@ nav ul { list-style:none; margin:0; padding:0; display:flex; justify-content:cen
 nav ul li { margin:0 15px; color:white; padding:10px 0; cursor:pointer; }
 nav ul li.active { border-bottom:2px solid #c40000; }
 .container { width:90%; max-width:1200px; margin:20px auto; }
-.news-card { background:white; padding:20px; margin-bottom:20px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
-.news-card img { width:100%; border-radius:8px; margin-bottom:15px; }
-.news-card h2 { font-size:22px; }
-.news-card p { font-size:18px; display:none; margin-top:10px; line-height:1.5; }
-.news-card a.more-btn { display:inline-block; margin-top:10px; color:#c40000; text-decoration:none; font-weight:bold; font-size:18px; cursor:pointer; }
-#video-overlay { position:fixed; top:0; left:0; width:100%; height:100%; background:#000; z-index:9999; display:flex; justify-content:center; align-items:center; }
-#video-overlay video { width:100%; max-width:800px; border-radius:8px; }
+.news-card, .news-full { background:white; padding:20px; margin-bottom:20px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+.news-card img, .news-full img { width:100%; border-radius:8px; margin-bottom:15px; }
+.news-card a, .back-link, .share-btn { display:inline-block; margin-top:10px; color:#c40000; text-decoration:none; font-weight:bold; font-size:18px; }
+.back-link { margin-top:20px; }
+.news-card h2, .news-full h2 { font-size:22px; }
+.news-card p, .news-full p { font-size:18px; }
+#news-page { display:none; }
+.result-links a { display:block; margin:5px 0; color:#c40000; text-decoration:none; font-size:18px; }
+#intro-video { position:fixed; top:0; left:0; width:100%; height:100%; object-fit:fill; z-index:9999; }
 </style>
 </head>
 <body>
 
-<!-- فيديو عند الدخول -->
-<div id="video-overlay">
-    <video id="introVideo" autoplay muted>
-        <source src="VID_٢٠٢٦٠٢٠٣٠٣٠٩٥١.mp4" type="video/mp4">
-    </video>
-</div>
+<!-- فيديو الدخول -->
+<video id="intro-video" autoplay muted playsinline>
+  <source src="VID_٢٠٢٦٠٢٠٣٠٣٠٩٥١.mp4" type="video/mp4">
+</video>
 
 <header>
     <div class="logo">
@@ -61,80 +61,133 @@ nav ul li.active { border-bottom:2px solid #c40000; }
     </ul>
 </nav>
 
-<div class="container" id="news-container">
-<!-- الأخبار ستُضاف ديناميكياً من JSON -->
+<div class="container" id="main-page">
+<!-- الأخبار سيتم تحميلها من JSON -->
+</div>
+
+<div class="container" id="news-page">
+<!-- صفحة الخبر ستعرض عند الضغط على عرض المزيد -->
 </div>
 
 <script>
-// --- إدارة الفيديو عند الدخول ---
-const videoOverlay = document.getElementById('video-overlay');
-const introVideo = document.getElementById('introVideo');
+// --- فيديو الدخول: إخفاء بعد 7 ثواني أو عند أي ضغط ---
+const introVideo = document.getElementById('intro-video');
+introVideo.addEventListener('ended', ()=>{ introVideo.style.display='none'; });
+document.addEventListener('click', ()=>{ introVideo.style.display='none'; });
 
-introVideo.addEventListener('ended', () => {
-    videoOverlay.style.display = 'none';
-});
-
-videoOverlay.addEventListener('click', () => {
-    videoOverlay.style.display = 'none';
-    introVideo.pause();
-});
-
-// --- جلب البيانات من ملف JSON ---
+// --- جلب البيانات من JSON ---
 fetch('data.json')
 .then(response => response.json())
 .then(data => {
-    const container = document.getElementById('news-container');
-    data.forEach(news => {
+    const mainPage = document.getElementById('main-page');
+    const newsPage = document.getElementById('news-page');
+    
+    data.news.forEach(n => {
+        // إنشاء بطاقة الأخبار في الصفحة الرئيسية
         const card = document.createElement('div');
         card.className = 'news-card';
-        card.setAttribute('data-category', news.category);
-
-        const img = document.createElement('img');
-        img.src = news.image;
-        img.alt = news.title;
-        card.appendChild(img);
-
-        const h2 = document.createElement('h2');
-        h2.textContent = news.title;
-        card.appendChild(h2);
-
-        const p = document.createElement('p');
-        p.textContent = news.description;
-        card.appendChild(p);
-
-        const moreBtn = document.createElement('a');
-        moreBtn.href = '#';
-        moreBtn.className = 'more-btn';
-        moreBtn.textContent = 'عرض المزيد';
-        moreBtn.onclick = function(e){
-            e.preventDefault();
-            if(p.style.display==='none' || p.style.display===''){
-                p.style.display='block';
-                moreBtn.textContent='عرض أقل';
-            } else {
-                p.style.display='none';
-                moreBtn.textContent='عرض المزيد';
+        card.dataset.category = n.category;
+        card.dataset.link = n.id;
+        card.innerHTML = `
+            <img src="${n.image}" alt="${n.title}">
+            <h2>${n.title}</h2>
+            <p>${n.desc.split("<br>").slice(0,2).join(" ")}...</p>
+            <a href="#" onclick="showNews('${n.id}')">عرض المزيد</a>
+        `;
+        mainPage.appendChild(card);
+        
+        // إنشاء صفحة الخبر الكامل
+        const full = document.createElement('div');
+        full.className = 'news-full';
+        full.id = n.id;
+        full.style.display='none';
+        let fullDesc = n.desc;
+        if(n.id==='results' && n.links){
+            fullDesc += '<div class="result-links">';
+            for(const [prov, link] of Object.entries(n.links)){
+                fullDesc += `<a href="${link}" target="_blank">${prov}</a>`;
             }
-        };
-        card.appendChild(moreBtn);
+            fullDesc += '</div>';
+        }
+        full.innerHTML = `
+            <img src="${n.image}" alt="${n.title}">
+            <h2>${n.title}</h2>
+            <p>${fullDesc}</p>
+            <a href="#" class="back-link" onclick="backToMain()">الرجوع للرئيسية</a>
+        `;
+        newsPage.appendChild(full);
+    });
 
-        container.appendChild(card);
+    // الضغط الطويل لمشاركة الخبر
+    const newsCards = document.querySelectorAll('.news-card');
+    newsCards.forEach(card=>{
+        let pressTimer;
+        card.addEventListener('mousedown', startPress);
+        card.addEventListener('touchstart', startPress);
+        card.addEventListener('mouseup', cancelPress);
+        card.addEventListener('mouseleave', cancelPress);
+        card.addEventListener('touchend', cancelPress);
+
+        function startPress(){
+            pressTimer = setTimeout(()=>{ showShare(card); }, 600);
+        }
+        function cancelPress(){ clearTimeout(pressTimer); }
+
+        function showShare(card){
+            if(card.querySelector('.share-btn')) return;
+            const btn = document.createElement('a');
+            btn.className = 'share-btn';
+            btn.textContent = 'مشاركة الخبر';
+            btn.style.display='block';
+            btn.style.marginTop='10px';
+            btn.style.padding='8px 12px';
+            btn.style.background='#c40000';
+            btn.style.color='white';
+            btn.style.textDecoration='none';
+            btn.style.borderRadius='5px';
+            btn.style.textAlign='center';
+            btn.style.cursor='pointer';
+            btn.onclick = function(){
+                const newsTitle = card.querySelector('h2').textContent;
+                const newsId = card.dataset.link;
+                const shareURL = window.location.href.split('#')[0] + '#' + newsId;
+                if(navigator.share){ navigator.share({ title: newsTitle, url: shareURL }); }
+                else { prompt("انسخ الرابط لمشاركة الخبر:", shareURL); }
+            };
+            card.appendChild(btn);
+        }
+    });
+
+    // فتح الخبر مباشرة عبر الرابط
+    window.addEventListener('load', ()=>{
+        let hash = window.location.hash.replace('#','');
+        if(hash){ showNews(hash); }
     });
 });
 
-// --- فلترة الأخبار حسب الفئة ---
+// --- دوال التحكم ---
+function showNews(n){
+    document.getElementById('main-page').style.display='none';
+    document.getElementById('news-page').style.display='block';
+    document.querySelectorAll('.news-full').forEach(nf=>nf.style.display='none');
+    const news = document.getElementById(n);
+    if(news) news.style.display='block';
+    window.currentNewsId = n;
+}
+function backToMain(){
+    document.getElementById('news-page').style.display='none';
+    document.getElementById('main-page').style.display='block';
+}
 function filterNews(category){
     const cards = document.querySelectorAll('.news-card');
     cards.forEach(card=>{
-        if(category==='all' || card.getAttribute('data-category')===category){
-            card.style.display='block';
-        } else { card.style.display='none'; }
+        if(category==='all' || card.dataset.category===category){ card.style.display='block'; }
+        else { card.style.display='none'; }
     });
     document.querySelectorAll('nav ul li').forEach(li=>li.classList.remove('active'));
     if(category==='all'){ document.querySelector('nav ul li:first-child').classList.add('active'); }
     else { Array.from(document.querySelectorAll('nav ul li')).forEach(li=>{ if(li.textContent===category) li.classList.add('active'); }); }
 }
 </script>
-
 </body>
 </html>
