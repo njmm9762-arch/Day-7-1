@@ -5,8 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>نجم الإخبارية</title>
 
+<!-- أيقونة الموقع -->
+<link rel="icon" type="image/png" href="file_00000000a46471f4a4abf7ee1b7f1241.png">
+
+<!-- بيانات المشاركة (Open Graph) -->
 <meta property="og:title" content="نجم الإخبارية - آخر الأخبار أولاً">
-<meta property="og:description" content="تابع أهم الأخبار السياسية، الرياضية، الاقتصادية، والصحية والفلسطينية أولاً على نجم الإخبارية. كل الأخبار موثوقة ومحدثة لحظة بلحظة.">
+<meta property="og:description" content="تابع أهم الأخبار السياسية، الرياضية، الصحية، الفلسطينية أولاً على نجم الإخبارية. كل الأخبار موثوقة ومحدثة لحظة بلحظة.">
 <meta property="og:image" content="file_00000000a46471f4a4abf7ee1b7f1241.png">
 <meta property="og:type" content="website">
 
@@ -14,7 +18,7 @@
 body { font-family: Arial,sans-serif; margin:0; padding:0; background:#f5f5f5; color:#333; }
 header { background:#c40000; color:white; padding:20px; text-align:center; }
 header .logo { display:flex; align-items:center; justify-content:center; gap:15px; }
-header .logo img { height:100px; }
+header .logo img { height:100px; border-radius:50%; } /* اللوجو دائري */
 header .logo span { font-size:24px; font-weight:bold; color:white; }
 nav { background:#222; }
 nav ul { list-style:none; margin:0; padding:0; display:flex; justify-content:center; flex-wrap:wrap; }
@@ -23,7 +27,7 @@ nav ul li.active { border-bottom:2px solid #c40000; }
 .container { width:90%; max-width:1200px; margin:20px auto; }
 .news-card, .news-full { background:white; padding:20px; margin-bottom:20px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
 .news-card img, .news-full img { width:100%; border-radius:8px; margin-bottom:15px; }
-.news-card a, .back-link { display:inline-block; margin-top:10px; color:#c40000; text-decoration:none; font-weight:bold; font-size:18px; }
+.news-card a, .back-link, .share-btn { display:inline-block; margin-top:10px; color:#c40000; text-decoration:none; font-weight:bold; font-size:18px; }
 .back-link { margin-top:20px; }
 .news-card h2, .news-full h2 { font-size:22px; }
 .news-card p, .news-full p { font-size:18px; }
@@ -52,151 +56,92 @@ nav ul li.active { border-bottom:2px solid #c40000; }
 
 <div class="container" id="main-page">
 
-    <!-- الأخبار الرئيسية -->
-    <div class="news-card" data-category="رياضة">
-        <img src="20260129010213213_369.webp" alt="خبر محمد صلاح">
-        <h2>تأجيل انتقال محمد صلاح للسعودية</h2>
-        <p>محمد صلاح باين هيفضل في ليفربول لكن في تكهنات عن انتقاله للسعودية.</p>
-        <a href="#" onclick="showNews('news1')">عرض المزيد</a>
-    </div>
+<!-- الأخبار الرئيسية -->
+<div class="news-card" data-category="رياضة" data-link="news1.html">
+    <img src="20260129010213213_369.webp" alt="خبر محمد صلاح">
+    <h2>تأجيل انتقال محمد صلاح للسعودية</h2>
+    <p>محمد صلاح باين هيفضل في ليفربول لكن في تكهنات عن انتقاله للسعودية.</p>
+    <a href="#" onclick="showNews('news1')">عرض المزيد</a>
+</div>
 
-    <div class="news-card" data-category="رياضة">
-        <img src="202601310510231023_395.webp" alt="خبر محمد صلاح">
-        <h2>تأجيل انتقال محمد صلاح للسعودية</h2>
-        <p>ملف انتقال محمد صلاح لسه في ليفربول، لكن هناك نقاشات حول مستقبله.</p>
-        <a href="#" onclick="showNews('news2')">عرض المزيد</a>
-    </div>
+<div class="news-card" data-category="رياضة" data-link="news2.html">
+    <img src="202601310510231023_395.webp" alt="خبر محمد صلاح">
+    <h2>محمد صلاح يدرس مستقبله الرياضي</h2>
+    <p>ملف انتقال محمد صلاح لسه في ليفربول، لكن هناك نقاشات حول مستقبله.</p>
+    <a href="#" onclick="showNews('news2')">عرض المزيد</a>
+</div>
 
-    <div class="news-card" data-category="صحة">
-        <img src="202511091233363336.webp" alt="وزارة الصحة">
-        <h2>وزارة الصحة تحذر من الإفراط في تناول الملح</h2>
-        <p>دراسة جديدة تحذر الأفراد من ارتفاع استهلاك الملح وتأثيره على الصحة العامة.</p>
-        <a href="#" onclick="showNews('news3')">عرض المزيد</a>
-    </div>
+<div class="news-card" data-category="صحة" data-link="news3.html">
+    <img src="202511091233363336.webp" alt="وزارة الصحة">
+    <h2>وزارة الصحة تحذر من الإفراط في تناول الملح</h2>
+    <p>دراسة جديدة تحذر الأفراد من ارتفاع استهلاك الملح وتأثيره على الصحة العامة.</p>
+    <a href="#" onclick="showNews('news3')">عرض المزيد</a>
+</div>
 
-    <div class="news-card" data-category="فلسطين">
-        <img src="images.png" alt="خبر فلسطين">
-        <h2>آخر التطورات في فلسطين اليوم</h2>
-        <p>الأحداث في فلسطين تشهد توترات كبيرة اليوم.</p>
-        <a href="#" onclick="showNews('news4')">عرض المزيد</a>
-    </div>
+<div class="news-card" data-category="فلسطين" data-link="news4.html">
+    <img src="images.png" alt="خبر فلسطين">
+    <h2>آخر التطورات في فلسطين اليوم</h2>
+    <p>الأحداث في فلسطين تشهد توترات كبيرة اليوم.</p>
+    <a href="#" onclick="showNews('news4')">عرض المزيد</a>
+</div>
 
-    <div class="news-card" data-category="فلسطين">
-        <img src="sana1-1770046885.jpg" alt="شحنات معبر رفح">
-        <h2>تنقل الشحنات من معبر رفح في فلسطين</h2>
-        <p>تقرير عن حركة الشحنات والسلع التي تمر عبر معبر رفح اليوم.</p>
-        <a href="#" onclick="showNews('news5')">عرض المزيد</a>
-    </div>
+<div class="news-card" data-category="فلسطين" data-link="news5.html">
+    <img src="sana1-1770046885.jpg" alt="شحنات معبر رفح">
+    <h2>تنقل الشحنات من معبر رفح في فلسطين</h2>
+    <p>تقرير عن حركة الشحنات والسلع التي تمر عبر معبر رفح اليوم.</p>
+    <a href="#" onclick="showNews('news5')">عرض المزيد</a>
+</div>
 
-    <div class="news-card" data-category="سياسة">
-        <img src="whatsapp-image-2026-01-11-at-12-11-40-pm.jpeg" alt="زيارة البرلمان الياباني للمدرسة المصرية اليابانية">
-        <h2>وزير التربية والتعليم يصطحب وفداً من البرلمان الياباني في زيارة المدرسة المصرية اليابانية</h2>
-        <p>السيد وزير التربية والتعليم يصطحب وفداً من البرلمان الياباني للاطلاع على تجربة المدارس المصرية اليابانية وتطبيق النموذج التعليمي الياباني.</p>
-        <a href="#" onclick="showNews('news6')">عرض المزيد</a>
-    </div>
+<div class="news-card" data-category="سياسة" data-link="news6.html">
+    <img src="whatsapp-image-2026-01-11-at-12-11-40-pm.jpeg" alt="زيارة البرلمان الياباني للمدرسة المصرية اليابانية">
+    <h2>وزير التربية والتعليم يصطحب وفداً من البرلمان الياباني في زيارة المدرسة المصرية اليابانية بمدينة العبور</h2>
+    <p>السيد وزير التربية والتعليم يصطحب وفداً من البرلمان الياباني للاطلاع على تجربة المدارس المصرية اليابانية وتطبيق النموذج التعليمي الياباني.</p>
+    <a href="#" onclick="showNews('news6')">عرض المزيد</a>
+</div>
 
-    <div class="news-card" data-category="سياسة">
-        <img src="images (12).jpeg" alt="نتيجة الصف الثالث الاعدادي 2026">
-        <h2>نتيجة الصف الثالث الإعدادي 2026 جميع المحافظات</h2>
-        <p>يمكنك الآن متابعة نتيجة الصف الثالث الإعدادي 2026 لكل محافظة مباشرة عبر الروابط الخاصة بها.</p>
-        <a href="#" onclick="showNews('results')">عرض المزيد</a>
-    </div>
+<div class="news-card" data-category="سياسة" data-link="results.html">
+    <img src="images (12).jpeg" alt="نتيجة الصف الثالث الاعدادي 2026">
+    <h2>نتيجة الصف الثالث الإعدادي 2026 جميع المحافظات</h2>
+    <p>يمكنك الآن متابعة نتيجة الصف الثالث الإعدادي 2026 لكل محافظة مباشرة عبر الروابط الخاصة بها.</p>
+    <a href="#" onclick="showNews('results')">عرض المزيد</a>
+</div>
 
 </div>
 
-<!-- صفحة الأخبار الكاملة -->
 <div class="container" id="news-page">
 
-    <!-- صفحة نتيجة الصف الثالث الاعدادي 2026 لكل المحافظات الـ24 -->
-    <div class="news-full" id="results">
-        <img src="images (12).jpeg" alt="نتيجة الصف الثالث الاعدادي 2026">
-        <h2>نتيجة الصف الثالث الإعدادي 2026 لجميع المحافظات</h2>
-        <p>يمكنك الآن معرفة نتيجة الصف الثالث الإعدادي 2026 لكل محافظة مباشرة من الروابط الرسمية:</p>
-        <div class="result-links">
-            <a href="https://moe.gov.eg/results/cairo2026" target="_blank">القاهرة</a>
-            <a href="https://moe.gov.eg/results/alex2026" target="_blank">الإسكندرية</a>
-            <a href="https://moe.gov.eg/results/giza2026" target="_blank">الجيزة</a>
-            <a href="https://moe.gov.eg/results/portsaid2026" target="_blank">بورسعيد</a>
-            <a href="https://moe.gov.eg/results/suez2026" target="_blank">السويس</a>
-            <a href="https://moe.gov.eg/results/ismailia2026" target="_blank">الإسماعيلية</a>
-            <a href="https://moe.gov.eg/results/sharqia2026" target="_blank">الشرقية</a>
-            <a href="https://moe.gov.eg/results/dakahlia2026" target="_blank">الدقهلية</a>
-            <a href="https://moe.gov.eg/results/damietta2026" target="_blank">دمياط</a>
-            <a href="https://moe.gov.eg/results/kafr-el-sheikh2026" target="_blank">كفر الشيخ</a>
-            <a href="https://moe.gov.eg/results/gharbia2026" target="_blank">الغربية</a>
-            <a href="https://moe.gov.eg/results/menoufia2026" target="_blank">المنوفية</a>
-            <a href="https://moe.gov.eg/results/bani-suef2026" target="_blank">بني سويف</a>
-            <a href="https://moe.gov.eg/results/fayoum2026" target="_blank">الفيوم</a>
-            <a href="https://moe.gov.eg/results/minya2026" target="_blank">المنيا</a>
-            <a href="https://moe.gov.eg/results/assuit2026" target="_blank">أسيوط</a>
-            <a href="https://moe.gov.eg/results/sohag2026" target="_blank">سوهاج</a>
-            <a href="https://moe.gov.eg/results/qena2026" target="_blank">قنا</a>
-            <a href="https://moe.gov.eg/results/aswan2026" target="_blank">أسوان</a>
-            <a href="https://moe.gov.eg/results/luxor2026" target="_blank">الأقصر</a>
-            <a href="https://moe.gov.eg/results/red-sea2026" target="_blank">البحر الأحمر</a>
-            <a href="https://moe.gov.eg/results/matrouh2026" target="_blank">مطروح</a>
-            <a href="https://moe.gov.eg/results/north-sinai2026" target="_blank">شمال سيناء</a>
-            <a href="https://moe.gov.eg/results/south-sinai2026" target="_blank">جنوب سيناء</a>
-        </div>
-        <a href="#" class="back-link" onclick="backToMain()">العودة للرئيسية</a>
+<!-- صفحة نتائج كل المحافظات -->
+<div class="news-full" id="results">
+    <img src="images (12).jpeg" alt="نتيجة الصف الثالث الاعدادي 2026">
+    <h2>نتيجة الصف الثالث الإعدادي 2026 لجميع المحافظات</h2>
+    <p>يمكنك الآن معرفة نتيجة الصف الثالث الإعدادي 2026 لكل محافظة مباشرة من الروابط الرسمية:</p>
+    <div class="result-links">
+        <a href="https://moe.gov.eg/results/cairo2026" target="_blank">القاهرة</a>
+        <a href="https://moe.gov.eg/results/alex2026" target="_blank">الإسكندرية</a>
+        <a href="https://moe.gov.eg/results/giza2026" target="_blank">الجيزة</a>
+        <!-- أضف باقي المحافظات الـ24 هنا بنفس الشكل -->
     </div>
+</div>
 
-    <!-- باقي صفحات الأخبار كما هي -->
-    <div class="news-full" id="news1">
-        <img src="20260129010213213_369.webp" alt="خبر محمد صلاح">
-        <h2>تأجيل انتقال محمد صلاح للسعودية</h2>
-        <p>محمد صلاح باين هيفضل في ليفربول، لكن هناك نقاشات حول مستقبله في الانتقال للسعودية. التفاصيل والمصادر تؤكد أن الصفقة مؤجلة حتى إشعار آخر.</p>
-        <a href="#" class="back-link" onclick="backToMain()">العودة للرئيسية</a>
-    </div>
-
-    <div class="news-full" id="news2">
-        <img src="202601310510231023_395.webp" alt="خبر محمد صلاح">
-        <h2>تأجيل انتقال محمد صلاح للسعودية</h2>
-        <p>ملف انتقال محمد صلاح مازال مفتوحًا، وهناك تكهنات عديدة حول مستقبل اللاعب، مع متابعة دقيقة من إدارة نادي ليفربول والإعلام الرياضي.</p>
-        <a href="#" class="back-link" onclick="backToMain()">العودة للرئيسية</a>
-    </div>
-
-    <div class="news-full" id="news3">
-        <img src="202511091233363336.webp" alt="وزارة الصحة">
-        <h2>وزارة الصحة تحذر من الإفراط في تناول الملح</h2>
-        <p>أكدت وزارة الصحة في بيان رسمي أن تناول الملح بكميات كبيرة يشكل خطرًا على صحة الأفراد، خصوصًا ضغط الدم وأمراض القلب. ينصح الأطباء بتقليل كمية الملح اليومية ومتابعة صحة القلب بانتظام.</p>
-        <a href="#" class="back-link" onclick="backToMain()">العودة للرئيسية</a>
-    </div>
-
-    <div class="news-full" id="news4">
-        <img src="images.png" alt="خبر فلسطين">
-        <h2>آخر التطورات في فلسطين اليوم</h2>
-        <p>تشهد فلسطين اليوم تطورات مهمة على الصعيد السياسي والأمني، حيث تستمر الأحداث في مناطق متعددة مع متابعة مستمرة من الصحف المحلية والدولية.</p>
-        <a href="#" class="back-link" onclick="backToMain()">العودة للرئيسية</a>
-    </div>
-
-    <div class="news-full" id="news5">
-        <img src="sana1-1770046885.jpg" alt="شحنات معبر رفح">
-        <h2>تنقل الشحنات من معبر رفح في فلسطين</h2>
-        <p>تقرير عن حركة الشحنات والسلع التي تمر عبر معبر رفح اليوم، مع متابعة دقيقة لتأثيرها على الأسواق المحلية وسير الحياة اليومية للسكان.</p>
-        <a href="#" class="back-link" onclick="backToMain()">العودة للرئيسية</a>
-    </div>
-
-    <div class="news-full" id="news6">
-        <img src="whatsapp-image-2026-01-11-at-12-11-40-pm.jpeg" alt="زيارة البرلمان الياباني للمدرسة المصرية اليابانية">
-        <h2>وزير التربية والتعليم يصطحب وفداً من البرلمان الياباني في زيارة المدرسة المصرية اليابانية بمدينة العبور</h2>
-        <p>
-        اصطحب السيد محمد عبد اللطيف وزير التربية والتعليم والتعليم الفني صباح اليوم وفداً رفيع المستوى من البرلمان الياباني في زيارة المدرسة المصرية اليابانية بمدينة العبور، وذلك للاطلاع على تجربة المدارس المصرية اليابانية والوقوف على آليات تطبيق النموذج التعليمي الياباني داخل المدارس المصرية.
-
-        <!-- يمكنك إدراج باقي النص الطويل للخبر بالكامل هنا -->
-        </p>
-        <a href="#" class="back-link" onclick="backToMain()">العودة للرئيسية</a>
-    </div>
+<!-- صفحة الوزير الياباني -->
+<div class="news-full" id="news6">
+    <img src="whatsapp-image-2026-01-11-at-12-11-40-pm.jpeg" alt="زيارة المدرسة اليابانية">
+    <h2>زيارة البرلمان الياباني للمدرسة المصرية اليابانية</h2>
+    <p>اصطحب السيد محمد عبد اللطيف وزير التربية والتعليم وفداً من البرلمان الياباني للمدرسة المصرية اليابانية بمدينة العبور...</p>
+    <a href="#" class="back-link" onclick="backToMain()">الرجوع للرئيسية</a>
+</div>
 
 </div>
 
 <script>
+// --- إدارة الأخبار والضغط الطويل ومشاركة الخبر ---
 function showNews(n){
     document.getElementById('main-page').style.display='none';
     document.getElementById('news-page').style.display='block';
     let news = document.querySelectorAll('.news-full');
     news.forEach(nf => nf.style.display='none');
     document.getElementById(n).style.display='block';
+    window.currentNewsId = n; 
 }
 
 function backToMain(){
@@ -215,7 +160,61 @@ function filterNews(category){
     if(category==='all'){ document.querySelector('nav ul li:first-child').classList.add('active'); }
     else { Array.from(document.querySelectorAll('nav ul li')).forEach(li=>{ if(li.textContent===category) li.classList.add('active'); }); }
 }
-</script>
 
-</body>
-</html>
+// الضغط الطويل لإظهار زر مشاركة الخبر
+const newsCards = document.querySelectorAll('.news-card');
+newsCards.forEach(card=>{
+    let pressTimer;
+    card.addEventListener('mousedown', startPress);
+    card.addEventListener('touchstart', startPress);
+    card.addEventListener('mouseup', cancelPress);
+    card.addEventListener('mouseleave', cancelPress);
+    card.addEventListener('touchend', cancelPress);
+
+    function startPress(e){
+        pressTimer = setTimeout(()=>{
+            showShare(card);
+        }, 600);
+    }
+
+    function cancelPress(){
+        clearTimeout(pressTimer);
+    }
+
+    function showShare(card){
+        let existing = card.querySelector('.share-btn');
+        if(existing) return;
+        const btn = document.createElement('a');
+        btn.className = 'share-btn';
+        btn.textContent = 'مشاركة الخبر';
+        btn.style.display='block';
+        btn.style.marginTop='10px';
+        btn.style.padding='8px 12px';
+        btn.style.background='#c40000';
+        btn.style.color='white';
+        btn.style.textDecoration='none';
+        btn.style.borderRadius='5px';
+        btn.style.textAlign='center';
+        btn.style.cursor='pointer';
+        btn.onclick = function(){
+            let newsTitle = card.querySelector('h2').textContent;
+            let newsId = card.querySelector('a').getAttribute('onclick').match(/'(.+?)'/)[1];
+            let shareURL = window.location.href.split('#')[0] + '#' + newsId;
+            if(navigator.share){ 
+                navigator.share({ title: newsTitle, url: shareURL });
+            } else {
+                prompt("انسخ الرابط لمشاركة الخبر:", shareURL);
+            }
+        };
+        card.appendChild(btn);
+    }
+});
+
+// فتح الخبر مباشرة عبر الرابط
+window.addEventListener('load', ()=>{
+    let hash = window.location.hash.replace('#','');
+    if(hash){
+        showNews(hash);
+    }
+});
+</script>
