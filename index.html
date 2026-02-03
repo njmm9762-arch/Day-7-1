@@ -6,12 +6,12 @@
 <title>نجم الإخبارية</title>
 
 <!-- أيقونة الموقع -->
-<link rel="icon" type="image/png" href="file_00000000a46471f4a4abf7ee1b7f1241.png">
+<link rel="icon" type="image/png" href="https://njmm9762-arch.github.io/Day-7-1/file_00000000a46471f4a4abf7ee1b7f1241.png">
 
 <!-- بيانات المشاركة (Open Graph) -->
 <meta property="og:title" content="نجم الإخبارية - آخر الأخبار أولاً">
 <meta property="og:description" content="تابع أهم الأخبار السياسية، الرياضية، الصحية، الفلسطينية أولاً على نجم الإخبارية. كل الأخبار موثوقة ومحدثة لحظة بلحظة.">
-<meta property="og:image" content="file_00000000a46471f4a4abf7ee1b7f1241.png">
+<meta property="og:image" content="https://njmm9762-arch.github.io/Day-7-1/file_00000000a46471f4a4abf7ee1b7f1241.png">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://njmm9762-arch.github.io/Day-7-1/">
 
@@ -19,7 +19,7 @@
 body { font-family: Arial,sans-serif; margin:0; padding:0; background:#f5f5f5; color:#333; }
 header { background:#c40000; color:white; padding:20px; text-align:center; }
 header .logo { display:flex; align-items:center; justify-content:center; gap:15px; }
-header .logo img { height:100px; border-radius:50%; } /* اللوجو دائري */
+header .logo img { height:100px; border-radius:50%; }
 header .logo span { font-size:24px; font-weight:bold; color:white; }
 nav { background:#222; }
 nav ul { list-style:none; margin:0; padding:0; display:flex; justify-content:center; flex-wrap:wrap; }
@@ -38,20 +38,18 @@ nav ul li.active { border-bottom:2px solid #c40000; }
 /* فيديو الدخول */
 #intro-video { position:fixed;top:0;left:0;width:100%;height:100%;background:black;display:flex;justify-content:center;align-items:center;z-index:9999; }
 #intro-video video { width:100%; height:100%; object-fit:cover; }
-#skipBtn { position:absolute; top:20px; right:20px; padding:10px 20px; font-size:18px; background:rgba(0,0,0,0.5); color:white; border:none; border-radius:5px; cursor:pointer; z-index:10000; }
 </style>
 </head>
 <body>
 
 <!-- فيديو الدخول -->
 <div id="intro-video">
-    <video id="videoElement" src="VID_٢٠٢٦٠٢٠٣٠٣٠٩٥١.mp4" autoplay></video>
-    <button id="skipBtn">Skip</button>
+    <video id="videoElement" src="VID_٢٠٢٦٠٢٠٣٠٣٠٩٥١.mp4" autoplay muted></video>
 </div>
 
 <header>
     <div class="logo">
-        <img src="file_00000000a46471f4a4abf7ee1b7f1241.png" alt="نجم الإخبارية">
+        <img src="https://njmm9762-arch.github.io/Day-7-1/file_00000000a46471f4a4abf7ee1b7f1241.png" alt="نجم الإخبارية">
         <span>نجم الإخبارية</span>
     </div>
 </header>
@@ -107,7 +105,7 @@ nav ul li.active { border-bottom:2px solid #c40000; }
 <div class="news-card" data-category="سياسة" data-link="news6.html">
     <img src="whatsapp-image-2026-01-11-at-12-11-40-pm.jpeg" alt="زيارة البرلمان الياباني للمدرسة المصرية اليابانية">
     <h2>زيارة البرلمان الياباني للمدرسة المصرية اليابانية</h2>
-    <p>اصطحب السيد وزير التربية والتعليم وفداً من البرلمان الياباني للاطلاع على تجربة المدارس المصرية اليابانية وتطبيق النموذج التعليمي الياباني.</p>
+    <p>اصطحب السيد محمد عبد اللطيف وزير التربية والتعليم وفداً من البرلمان الياباني للمدرسة المصرية اليابانية بمدينة العبور...</p>
     <a href="#" onclick="showNews('news6')">عرض المزيد</a>
 </div>
 
@@ -131,8 +129,9 @@ nav ul li.active { border-bottom:2px solid #c40000; }
         <a href="https://moe.gov.eg/results/cairo2026" target="_blank">القاهرة</a>
         <a href="https://moe.gov.eg/results/alex2026" target="_blank">الإسكندرية</a>
         <a href="https://moe.gov.eg/results/giza2026" target="_blank">الجيزة</a>
-        <!-- باقي المحافظات تكمل بنفس الشكل -->
+        <!-- أكمل باقي المحافظات الـ24 بنفس الشكل -->
     </div>
+    <a href="#" class="back-link" onclick="backToMain()">الرجوع للرئيسية</a>
 </div>
 
 <!-- صفحة الوزير الياباني -->
@@ -146,14 +145,11 @@ nav ul li.active { border-bottom:2px solid #c40000; }
 </div>
 
 <script>
-// --- فيديو الدخول ---
+// فيديو الدخول
 const introVideo = document.getElementById('intro-video');
 const videoEl = document.getElementById('videoElement');
-const skipBtn = document.getElementById('skipBtn');
-skipBtn.addEventListener('click', hideVideo);
-introVideo.addEventListener('click', function(e){
-    if(e.target !== skipBtn) hideVideo();
-});
+introVideo.addEventListener('click', hideVideo);
+setTimeout(hideVideo, 7000);
 function hideVideo(){ introVideo.style.display='none'; videoEl.pause(); }
 
 // --- إدارة الأخبار والضغط الطويل ومشاركة الخبر ---
@@ -240,6 +236,5 @@ window.addEventListener('load', ()=>{
     }
 });
 </script>
-
 </body>
 </html>
